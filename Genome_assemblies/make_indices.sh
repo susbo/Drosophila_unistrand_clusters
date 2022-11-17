@@ -69,6 +69,20 @@ wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "gtf.gz" https://ftp.n
 wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/975/GCF_000005975.2_dyak_caf1 -P $prefix/NCBI2/Drosophila_yakuba
 wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "gtf.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/975/GCF_000005975.2_dyak_caf1 -P $prefix/NCBI2/Drosophila_yakuba
 
+# Download some more additional genomes with gene predictions
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/009/664/405/GCA_009664405.1_UCBerk_Dbif_1.0 -P $prefix/NCBI3/Drosophila_bifasciata
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/005/876/895/GCA_005876895.1_DaztRS1 -P $prefix/NCBI3/Drosophila_azteca
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/121/215/GCA_008121215.1_UCBerk_Dath_EB_1.0 -P $prefix/NCBI3/Drosophila_athabasca
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/121/275/GCA_008121275.1_UCBerk_Dlow_1.0 -P $prefix/NCBI3/Drosophila_lowei
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/005/876/975/GCA_005876975.1_DoreRS1 -P $prefix/NCBI3/Drosophila_orena
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/042/775/GCA_008042775.1_UCB_Dpec_1.0 -P $prefix/NCBI3/Drosophila_pectinifera
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/042/475/GCA_008042475.1_UCB_Dkan_1.0 -P $prefix/NCBI3/Drosophila_kanapiae
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/042/815/GCA_008042815.1_UCB_Dbun_1.0 -P $prefix/NCBI3/Drosophila_bunnanda
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/042/835/GCA_008042835.1_UCB_Dser_1.0 -P $prefix/NCBI3/Drosophila_serrata
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/008/042/755/GCA_008042755.1_UCB_Dbir_1.0 -P $prefix/NCBI3/Drosophila_birchii
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/020/883/555/GCA_020883555.1_orgogozo-p-161206-1 -P $prefix/NCBI3/Drosophila_nannoptera
+wget -r -l1 -nH --no-parent --cut-dirs=7 -e robots=off -A "genomic.fna.gz" https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/020/883/565/GCA_020883565.1_orgogozo-p-171030-0 -P $prefix/NCBI3/Drosophila_pachea
+
 ncbis=`ls $prefix/NCBI*/*/*genomic.fna.gz | grep -v rna | grep -v cds`
 for ncbi in $ncbis
 do
@@ -124,6 +138,19 @@ do
 	fi
 done
 
+echo Preparing blast indices
+genomes=`ls $prefix/species/*/*/genome.fa`
+for genome in $genomes
+do
+	base=`dirname $genome`
+	mkdir -p $base/blast
+	if [ ! -e $base/blast/genome.fa.fai ]; then
+   	ln -s $base/genome.fa $base/blast/genome.fa
+      makeblastdb -in $base/blast/genome.fa -dbtype nucl
+      samtools faidx $base/blast/genome.fa
+	fi
+done
+
 # We use this aligner due to the small index size
 echo Preparing HiSeq2 indices
 genomes=`ls $prefix/species/*/*/genome.fa`
@@ -136,6 +163,18 @@ do
       hisat2-build -p 10 $base/hisat2/genome.fa $base/hisat2/genome
       samtools faidx $base/hisat2/genome.fa
 	fi
+done
+
+# Prepare GMAP indices to allow mapping of cDNA fasta -> gff
+echo Preparing GMAP indices
+genomes=`ls $prefix/species/*/*/genome.fa`
+for genome in $genomes
+do
+   base=`dirname $genome`
+   mkdir -p $base/gmap
+   if [ ! -e $base/gmap/genome/genome.genomebits128 ]; then
+      gmap_build -d genome --dir $base/gmap $base/genome.fa
+   fi
 done
 
 echo Prepare chrom sizes files
