@@ -5,6 +5,8 @@ Analysis of Flamenco and uni-strand clusters
 
 ### Genome_assemblies
 
+Scripts to download and process all 196 genome assemblies used in this study.
+
 ### Version
 
 The current version is 0.1. For other the versions, see the [releases on this repository](https://github.com/susbo/Uni-stand_clusters/releases). 
