@@ -1,4 +1,4 @@
-# Uni-stand_clusters
+# Uni-strand_clusters
 Analysis of Flamenco and uni-strand clusters
 
 ## Overview
@@ -10,6 +10,10 @@ Scripts to download and process all 196 genome assemblies used in this study.
 ### Transposon_libraries
 
 Scripts/instructions to generate transposon libraries.
+
+### Synteny_biogenesis_genes
+
+Scripts to find syntenic locatons of genes relevant for somatic piRNA biogenesis.
 
 ### Version
 
@@ -26,5 +30,5 @@ This project is licensed under the  GNU GPLv3 License - see the [LICENSE](LICENS
 
 ### Citation
 
-If you use these scripts and pipelines, please cite:
+If you use these scripts and pipelines, please cite our preprint:
 

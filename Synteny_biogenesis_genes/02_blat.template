@@ -1,0 +1,9 @@
+#!/bin/bash
+
+genome=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/$1/$2/genome.fa`
+
+#blat -minIdentity=25 $genome query.fa tmp/psl/$1-$2.raw.psl
+#pslCDnaFilter -minCover=0.15 -globalNearBest=0.0 tmp/psl/$1-$2.raw.psl tmp/psl/$1-$2.filter.psl
+
+blat -maxIntron=500000 -minMatch=2 -minScore=30 -oneOff=1 -minIdentity=10 $genome query.fa tmp/psl/$1-$2.raw.psl
+pslCDnaFilter -minCover=0.1 -globalNearBest=0.0 tmp/psl/$1-$2.raw.psl tmp/psl/$1-$2.filter.psl
