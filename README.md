@@ -7,6 +7,10 @@ Analysis of Flamenco and uni-strand clusters
 
 Scripts to download and process all 196 genome assemblies used in this study.
 
+### Transposon_libraries
+
+Scripts/instructions to generate transposon libraries.
+
 ### Version
 
 The current version is 0.1. For other the versions, see the [releases on this repository](https://github.com/susbo/Uni-stand_clusters/releases). 
@@ -18,7 +22,7 @@ The current version is 0.1. For other the versions, see the [releases on this re
 
 ### License
 
-This project is licensed under the GNU AGPLv3 License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the  GNU GPLv3 License - see the [LICENSE](LICENSE) file for details.
 
 ### Citation
 
