@@ -34,6 +34,10 @@ perl /Users/bornel01/Software/RepeatMasker-4.1.2-Dfam-3.5/util/createRepeatLands
 # Extract nesed repeats for repeat counting; these scripts are from the RepatMasker package but has been sligthly modified
 perl /Users/bornel01/refs/drosophila/annotation/TE_library/data/extractNestedRepeats.pl genome.fa.out | sort -k1,1 -k2,2n > genome.fa.nestedRepeats.bed
 perl /Users/bornel01/refs/drosophila/annotation/TE_library/data/extractAllRepeats.pl genome.fa.out | sort -k1,1 -k2,2n > genome.fa.allRepeats.bed
+
+# Save space
+gzip genome.fa.masked
+gzip genome.fa.out
 cd ..
 
 conda deactivate
