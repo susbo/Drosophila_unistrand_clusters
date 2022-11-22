@@ -1,7 +1,9 @@
 #!/bin/bash
-# Create bowtie indices for use with sRNA-seq analysis
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Create bowtie indices for use with sRNA-seq analysis
 
 file=$1
 path=`dirname $file`

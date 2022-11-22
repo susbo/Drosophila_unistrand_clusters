@@ -1,6 +1,9 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Collate information from previous steps for use with downstream scripts
 
 file=$1
 path=`dirname $file`

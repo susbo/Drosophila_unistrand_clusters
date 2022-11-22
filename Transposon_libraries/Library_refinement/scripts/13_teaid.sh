@@ -1,6 +1,9 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Run TE-Aid on re-constructed consensus sequences to admire improvement
 
 file=$1
 path=`dirname $file`

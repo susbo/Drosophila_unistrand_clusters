@@ -1,8 +1,10 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
 
 # Combine EDTA and RepeatModeler output
+# Also removes unwanted repeat classes
 
 file=$1
 path=`dirname $file`

@@ -1,6 +1,13 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Combine similar sequences into clusters and select single cluster representatives
+# based on the number of good genomic hits and the length.
+# Currently hits and lengths have equal importance.
+
+# We compare several clustering settings for evaluation purpose.
 
 file=$1
 path=`dirname $file`

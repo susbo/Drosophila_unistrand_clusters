@@ -1,6 +1,9 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-21
+
+# Run TE-Aid on each repeat model to allow manual inspection
 
 file=$1
 path=`dirname $file`

@@ -1,8 +1,9 @@
 #!/bin/bash
-# Map TEs to described subfamilies
 
 # Author: Susanne Bornelöv
 # Last update: 2022-11-21
+
+# Map TEs to well-described subfamilies. We use three different thresholds.
 
 file=$1
 path=`dirname $file`

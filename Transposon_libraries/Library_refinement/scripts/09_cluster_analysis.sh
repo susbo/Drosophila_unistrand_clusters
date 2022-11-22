@@ -1,8 +1,10 @@
 #!/bin/bash
-# Analyse repeat content in selected regions
 
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Analyse repeat content in selected regions
+# Any regions can be defined for use with downstream scripts
 
 file=$1
 path=`dirname $file`

@@ -1,6 +1,10 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Calculate good genomic hits to guide deduplication using cd-hit-est
+# The params to calculate genomic hits are inspired by https://github.com/annaprotasio/TE_ManAnnot
 
 file=$1
 path=`dirname $file`

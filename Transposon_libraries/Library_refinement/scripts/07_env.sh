@@ -1,8 +1,9 @@
 #!/bin/bash
-# Search for hits to LTR-relevant proteins
 
 # Author: Susanne Bornelöv
 # Last change: 2022-11-20
+
+# Search for hits to LTR-relevant proteins
 
 file=$1
 path=`dirname $file`

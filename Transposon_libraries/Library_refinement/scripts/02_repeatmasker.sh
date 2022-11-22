@@ -1,6 +1,10 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# General script to run RepeatMasker based on a TE library
+# This is used at several steps to evaluate the refiment
 
 file=$1
 fasta=$2
@@ -18,7 +22,6 @@ conda activate repeatmasker
 mkdir -p $path/annotation/TE_library/repeatmasker/$fasta
 cd $fasta
 
-#cmd="RepeatMasker -s -pa 6 -lib $path/annotation/TE_library/fasta/$fasta.fa -no_is -nolow -norna -xsmall -html -gff -dir $path/annotation/TE_library/repeatmasker/$fasta $path/genome.fa"
 cmd="RepeatMasker -s -pa 6 -lib $path/annotation/TE_library/fasta/$fasta.fa -a -xsmall -html -gff -dir $path/annotation/TE_library/repeatmasker/$fasta $path/genome.fa"
 echo $cmd
 $cmd

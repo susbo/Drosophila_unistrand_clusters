@@ -21,3 +21,7 @@ Our version of EDTA crashed whenever a Penelope elements was detected. The avoid
 ## Library_refinement
 
 A set of scripts used to curate the EDTA and RepeatModeller raw transposon libraries. The master script `run_te_library.sh` will invoke all scripts in the `scripts` folder for each genome assembly. Several paths are hard-coded and reflect the data storage structure on our system, but it should give an detailed overview of all steps that we perform. The `data` folder contain additional data or scripts that are required for running the pipeline.
+
+### Peptide_libraries
+
+Script used to create libraries of env, gag, and pol proteins from RepeatClassifier. Used for the library refinement.

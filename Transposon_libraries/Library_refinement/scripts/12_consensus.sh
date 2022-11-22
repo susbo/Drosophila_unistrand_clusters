@@ -1,6 +1,11 @@
 #!/bin/bash
+
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
+
+# Remap repeat models back to genome, extend region, cluster, and construct consensus sequences
+# This is only applied for LTR transposons of high quality
+# It works really (surprisingly!) well
 
 file=$1
 path=`dirname $file`
@@ -18,7 +23,8 @@ blastn -query ../fasta/03_subset_reduced.fa -db $path/blast/genome.fa -outfmt "6
 # Convert to bed
 cat out.blast.o | awk '{OFS="\t"; if ($1~/^\#/) {} else { if ($10~/plus/) {print $2, $8, $9, $1, $3, "+"} else {print $2, $9, $8, $1, $3, "-"}}}' | sort -k4,4 -k1,1 -k2,2n | uniq > out.blast.bed
 
-# Extend regions
+# Extend regions; generally 2-5kb works well, but we found best performance with 4kb
+# Main challenge are sequences with very few genomic hits
 bedtools slop -s -i out.blast.bed  -g $path/chrom.sizes -b 4000 > out.blast.flank.bed
 
 source ~/.bash_profile
@@ -27,7 +33,7 @@ conda activate cialign
 #TEs=`cat ../info/info.txt | awk '$5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
 #TEs=`cat ../info/info.txt | awk '$4==1 && $5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
 #TEs=`cat ../info/info.txt | awk '$4==0 && $5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
-TEs=`cat ../info/info.txt | awk '$4+$5+$6>=2' | awk -v OFS="" '{print $1,"#",$2}'`
+TEs=`cat ../info/info.txt | grep LTR | awk '$4+$5+$6>=2' | awk -v OFS="" '{print $1,"#",$2}'`
 for TE in $TEs
 do
 	outname=`echo $TE | cut -d'#' -f1` # Not needed if extracted from info.txt...
@@ -37,7 +43,7 @@ do
 	mafft --reorder --auto --thread 1 out/$outname/$outname.blast.bed.fa > out/$outname/$outname.maf.fa
 	~/bin/CIAlign --infile out/$outname/$outname.maf.fa --outfile_stem out/$outname/$outname.maf.fa --crop_divergent --crop_divergent_min_prop_nongap 0.8 --crop_divergent_min_prop_ident 0.8 --remove_divergent --remove_divergent_minperc 0.3 --crop_ends --remove_insertions --insertion_max_size 1000 --remove_short --plot_input --plot_output --plot_coverage_output --plot_coverage_filetype svg --make_similarity_matrix_output --make_consensus
 
-	# Remove zero-coverage regions from consensus
+	# Remove flanking low-coverage regions from consensus
 	blastn -query out/$outname/$outname.maf.fa_consensus.fasta -db $path/blast/genome.fa -outfmt 6 > out/$outname/out.blast.o
 	perl /Users/bornel01/refs/drosophila/annotation/TE_library/data/crop_zero_coverage.pl out/$outname/out.blast.o out/$outname/$outname.maf.fa_consensus.fasta > out/$outname/$outname.cons.log
 
