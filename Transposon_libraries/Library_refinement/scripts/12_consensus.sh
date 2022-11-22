@@ -30,10 +30,7 @@ bedtools slop -s -i out.blast.bed  -g $path/chrom.sizes -b 4000 > out.blast.flan
 source ~/.bash_profile
 conda activate cialign
 
-#TEs=`cat ../info/info.txt | awk '$5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
-#TEs=`cat ../info/info.txt | awk '$4==1 && $5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
-#TEs=`cat ../info/info.txt | awk '$4==0 && $5==1 && $6==1' | awk -v OFS="" '{print $1,"#",$2}'`
-TEs=`cat ../info/info.txt | grep LTR | awk '$4+$5+$6>=2' | awk -v OFS="" '{print $1,"#",$2}'`
+TEs=`cat ../info/info.txt | awk '$6+$7+$8>=2' | awk -v OFS="" '{print $1,"#",$2}'`
 for TE in $TEs
 do
 	outname=`echo $TE | cut -d'#' -f1` # Not needed if extracted from info.txt...

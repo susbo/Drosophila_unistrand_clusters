@@ -39,7 +39,7 @@ while (my $row = <IN>) {
 
 # What is their subfamily?
 open IN,"../subfamily/ids_stringent_80.txt";
-my %subfamilies90;
+my %subfamilies80;
 <IN>;
 while (my $row = <IN>) {
 	chomp $row;

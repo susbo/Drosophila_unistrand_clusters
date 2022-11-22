@@ -12,7 +12,7 @@ open IN,"info.txt";
 while (my $row = <IN>) {
 	chomp $row;
 	my @tmp = split " ",$row;
-	my ($name,$count,$base) = @tmp[0,4,5];
+	my ($name,$count,$base) = @tmp[0,9,10]; # Name, hits, base
 #	printf "name: $name, count: $count, bp: $base\n";
 	$counts{"all"}{$name}=$count;
    $bases{"all"}{$name}=$base;
