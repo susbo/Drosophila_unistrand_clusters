@@ -22,7 +22,7 @@ The current version is 0.1. For other the versions, see the [releases on this re
 ### Authors
 
 * **Susanne Bornelöv** - [susbo](https://github.com/susbo)
-* **Jasper van Lopik**
+* **Jasper van Lopik** - [Jvanlopik](https://github.com/JvanLopik)
 
 ### License
 
