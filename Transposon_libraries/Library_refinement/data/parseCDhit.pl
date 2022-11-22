@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
-#
+# Author: Susanne Bornelöv
+# Last change: 2022-11-21
 use strict;
 
 my %counts;

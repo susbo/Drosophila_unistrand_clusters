@@ -1,5 +1,8 @@
 #!/usr/bin/perl -w
 # Parse different information to allow downstream plotting
+#
+# Author: Susanne Bornelöv
+# Last change: 2022-11-22
 use strict;
 
 # Get a list of all TEs and their family

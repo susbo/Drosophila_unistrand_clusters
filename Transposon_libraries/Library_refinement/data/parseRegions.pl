@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 # Create a summary per TE of global TE content and TE content per cluster region
+#
+# Author: Susanne Bornelöv
 use strict;
 
 # Read whole genome counts per TE

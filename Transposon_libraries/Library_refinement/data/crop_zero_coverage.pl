@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
-#
+# Author: Susanne Bornelöv
+# Last change: 2022-11-21
 use strict;
 
 chomp (my $length = `seqkit fx2tab --length $ARGV[1] | cut -f4`);
