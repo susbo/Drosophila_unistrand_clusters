@@ -6,17 +6,7 @@ mkdir -p log
 mkdir -p log/{copy,merge,classifier,cdhit,bowtie,env,subfamily,repeatmasker,repeatmasker2,cluster_analysis,info,teaid,hits,consensus}
 WD=$(pwd)
 
-# conda activate repeatmasker?
-
-FILES1=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/{Dsim,Dsec,Dmau}/*/genome.fa | grep -v d15 | grep -v d101`
-FILES2=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/Dmel/*/genome.fa | grep dm6`
-FILES3="$FILES1 $FILES2"
-FILES4=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/{Dyak,Dsan,Dtei,Dere,Deug,Dsuz,Dsubp,Dbia,Dtak,Dfic,Dinn,Dosh,Dpse,Dper,Dmir}/*/genome.fa | grep -v d15`
-FILES5=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/{Dele,Dfuy,Drho,Dsub,Dgua,Damb,Dtri,Dobs}/*/genome.fa | grep -v d15`
-
-FILES="$FILES3 $FILES4 $FILES5"
-
-FILES=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/{Dmel,Dfic,Dana}/{dm6,GCF_018152265,GCF_017639315}/genome.fa`
+FILES=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/*/*/genome.fa`
 
 for FILE in $FILES
 do

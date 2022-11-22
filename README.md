@@ -13,7 +13,7 @@ Scripts/instructions to generate transposon libraries.
 
 ### Synteny_biogenesis_genes
 
-Scripts to find syntenic locatons of genes relevant for somatic piRNA biogenesis.
+Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
 
 ### Version
 
