@@ -7,7 +7,7 @@ Code used in (van Lopik et al., 2023) to analyse *flamenco* conservation and *fl
 
 * [Genome_assemblies](https://github.com/susbo/Uni-strand_clusters/tree/main/Genome_assemblies) - Scripts to download and process all 193 genome assemblies used in this study.
 * [Transposon_libraries](https://github.com/susbo/Uni-strand_clusters/tree/main/Transposon_libraries) - Scripts/instructions to generate EDTA transposon libraries as well as curated ones.
-* [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters) - Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
+* [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters) - Scripts to calculate genome-wide LTR and transposons content, respectively. This enables detection of unistrand clusters based on transposon coverage.
 * Synteny visualisation - Scripts to produce macro-/microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
 * [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes) - Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
 
