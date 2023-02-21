@@ -2,7 +2,7 @@
 
 Analysis to visualise genome-wide LTR and total transposon content, respectively, to aid the discovery of unistrand piRNA clusters.
 
-## Output
+## Analysis steps
 To produce the output files, run the following scripts:
 
 ```
