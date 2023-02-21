@@ -5,11 +5,13 @@ Code used in (van Lopik et al., 2023) to analyse *flamenco* conservation and *fl
 
 ### Analyses
 
-* [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters) - Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
 * [Genome_assemblies](https://github.com/susbo/Uni-strand_clusters/tree/main/Genome_assemblies) - Scripts to download and process all 193 genome assemblies used in this study.
-* [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes) - Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
+* [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters) - Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
 * [Transposon_libraries](https://github.com/susbo/Uni-strand_clusters/tree/main/Transposon_libraries) - Scripts/instructions to generate transposon libraries.
-* Macro and microsynteny visualisation (MCScan) - Scripts to produce macro- and microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
+* Synteny visualisation - Scripts to produce macro-/microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
+* [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes) - Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
+
+Please reach out if you are missing information about any analysis step used in the paper and we will add it here if possible.
 
 ### Version
 
@@ -26,5 +28,5 @@ This project is licensed under the  GNU GPLv3 License - see the [LICENSE](LICENS
 
 ### Citation
 
-If you use these scripts and pipelines, please cite our preprint:
+If these scripts and pipelines are useful to your study, please cite our preprint:
 
