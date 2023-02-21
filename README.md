@@ -1,29 +1,15 @@
-# Uni-strand_clusters
-Analysis of Flamenco and uni-strand clusters
+# *Drosophila* unistrand piRNA clusters
+Code used in (van Lopik et al., 2023) to analyse *flamenco* conservation and *flamenco*-like unistrand clusters across *Drosophila* species.
 
 ## Overview
 
 ### Analyses
 
-#### [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters)
-
-Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
-
-#### [Genome_assemblies](https://github.com/susbo/Uni-strand_clusters/tree/main/Genome_assemblies)
-
-Scripts to download and process all 193 genome assemblies used in this study.
-
-#### [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes)
-
-Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
-
-#### [Transposon_libraries](https://github.com/susbo/Uni-strand_clusters/tree/main/Transposon_libraries)
-
-Scripts/instructions to generate transposon libraries.
-
-#### Macro and microsynteny visualisation (MCScan)
-
-Scripts to produce macro- and microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
+* [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters) - Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
+* [Genome_assemblies](https://github.com/susbo/Uni-strand_clusters/tree/main/Genome_assemblies) - Scripts to download and process all 193 genome assemblies used in this study.
+* [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes) - Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
+* [Transposon_libraries](https://github.com/susbo/Uni-strand_clusters/tree/main/Transposon_libraries) - Scripts/instructions to generate transposon libraries.
+* Macro and microsynteny visualisation (MCScan) - Scripts to produce macro- and microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
 
 ### Version
 
