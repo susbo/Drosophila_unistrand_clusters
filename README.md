@@ -5,19 +5,19 @@ Analysis of Flamenco and uni-strand clusters
 
 ### Analyses
 
-#### De-novo_clusters
+#### [De-novo_clusters](https://github.com/susbo/Uni-strand_clusters/tree/main/De-novo_clusters)
 
 Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
 
-#### Genome_assemblies
+#### [Genome_assemblies](https://github.com/susbo/Uni-strand_clusters/tree/main/Genome_assemblies)
 
 Scripts to download and process all 193 genome assemblies used in this study.
 
-#### Synteny_biogenesis_genes
+#### [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes)
 
 Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
 
-#### Transposon_libraries
+#### [Transposon_libraries](https://github.com/susbo/Uni-strand_clusters/tree/main/Transposon_libraries)
 
 Scripts/instructions to generate transposon libraries.
 

@@ -1,6 +1,9 @@
 # De-novo clusters
 
-Analysis to visualise genome-wide LTR and total transposon content, respectively, to aid the discovery of unistrand piRNA clusters. To produce the output files, run the following scripts:
+Analysis to visualise genome-wide LTR and total transposon content, respectively, to aid the discovery of unistrand piRNA clusters.
+
+## Output
+To produce the output files, run the following scripts:
 
 ```
 . 01_prepare.sh
