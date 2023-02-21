@@ -1,15 +1,23 @@
 #!/bin/bash
+# 
+# Script to download and prepare all genome assemblies. Please note that some paths are hard-coded for our storage
+# structure, but it should give a very clear idea of where every sample came from and how to access them.
+
+# Author: Susanne Bornelöv
+# Last edited: 2022-02-21
 
 prefix="/mnt/scratchb/ghlab/sus/REFERENCE/drosophila"
 mkdir -p $prefix
 
-#echo Copying git repository
+echo Copying git repository
 if [ ! -e "$prefix/git" ]; then
 	mkdir -p $prefix/git
 	git clone https://github.com/danrdanny/Drosophila15GenomesProject.git $prefix/git
 	rm -r $prefix/git/.git # To save space...
 fi
 
+# Please note that the D nebulosa genome was later assigned to another species.
+# This species was therefore not included in the current study.
 echo Downloading 101 Drosophila genomes
 mkdir -p $prefix/101genomes
 wget -r -l1 -nH --no-parent --cut-dirs=4 https://web.stanford.edu/~bkim331/files/genomes/ -P $prefix/101genomes
@@ -59,8 +67,8 @@ done
 echo Preparing reference for NCBI assemblies
 # Download genomes from annotation pipeline
 mkdir -p $prefix/NCBI
-#wget https://www.ncbi.nlm.nih.gov/genome/annotation_euk/all/
-#perl download_NCBI.pl
+wget https://www.ncbi.nlm.nih.gov/genome/annotation_euk/all/
+perl download_NCBI.pl
 
 # Download a few additional genomes
 mkdir -p $prefix/NCBI2
@@ -104,11 +112,7 @@ done
 echo Preparing drosophila melanogaster genomes
 mkdir -p $prefix/species/Dmel
 mkdir -p $prefix/species/Dmel/dm6
-mkdir -p $prefix/species/Dmel/dmJvL
-mkdir -p $prefix/species/Dmel/dmJMM
 ln -s /mnt/scratchb/ghlab/sus/REFERENCE/dmelanogaster6/dm6.fa $prefix/species/Dmel/dm6/genome.fa
-ln -s /Users/bornel01/Project/Jasper/201013_OSC_assembly/data/dmJvL.fasta $prefix/species/Dmel/dmJvL/genome.fa
-ln -s /Users/bornel01/Project/Jasper/201013_OSC_assembly/data/dmJMM.fasta $prefix/species/Dmel/dmJMM/genome.fa
 
 echo Preparing UCSC genomes - 211019
 for genome in http://hgdownload.soe.ucsc.edu/goldenPath/droEre1/bigZips/droEre1.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droSec1/bigZips/droSec1.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droSim1/bigZips/droSim1.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droYak2/bigZips/droYak2.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droAna2/bigZips/droAna2.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droPer1/bigZips/droPer1.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/dp3/bigZips/dp3.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droMoj2/bigZips/droMoj2.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droVir2/bigZips/droVir2.fa.gz http://hgdownload.soe.ucsc.edu/goldenPath/droGri1/bigZips/droGri1.fa.gz
@@ -165,7 +169,7 @@ do
 	fi
 done
 
-# Prepare GMAP indices to allow mapping of cDNA fasta -> gff
+# Prepare GMAP indices to allow mapping of cDNA fasta -> gff; not currently used
 echo Preparing GMAP indices
 genomes=`ls $prefix/species/*/*/genome.fa`
 for genome in $genomes

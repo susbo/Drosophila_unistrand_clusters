@@ -5,7 +5,7 @@ Analysis of Flamenco and uni-strand clusters
 
 ### Genome_assemblies
 
-Scripts to download and process all 196 genome assemblies used in this study.
+Scripts to download and process all 193 genome assemblies used in this study.
 
 ### Transposon_libraries
 

@@ -1,5 +1,10 @@
 #!/usr/bin/perl -w
-# This script will download all NCBI annotation genes for Drosophila *
+# This script will read index.html and download all NCBI annotation genes for any species from
+# the Drosophila genus.
+#
+# Author: Susanne Bornelöv
+# Last edited: 2023-02-21
+
 use strict;
 
 my $prefix="/mnt/scratchb/ghlab/sus/REFERENCE/drosophila";
