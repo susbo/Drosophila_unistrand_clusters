@@ -3,17 +3,27 @@ Analysis of Flamenco and uni-strand clusters
 
 ## Overview
 
-### Genome_assemblies
+### Analyses
+
+#### De-novo_clusters
+
+Scripts to calculate genome-wide LTR and transposons content, respectively. This will allows detection of unistrand clusters based on transposon coverage.
+
+#### Genome_assemblies
 
 Scripts to download and process all 193 genome assemblies used in this study.
 
-### Transposon_libraries
+#### Synteny_biogenesis_genes
+
+Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
+
+#### Transposon_libraries
 
 Scripts/instructions to generate transposon libraries.
 
-### Synteny_biogenesis_genes
+#### Macro and microsynteny visualisation (MCScan)
 
-Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
+Scripts to produce macro- and microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
 
 ### Version
 
