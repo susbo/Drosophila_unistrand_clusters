@@ -1,5 +1,8 @@
 #!/usr/bin/perl -w
-#
+
+# Author: Susanne Bornelöv
+# Last update: 2023-08-15
+
 use strict;
 
 open IN,$ARGV[0];
@@ -16,6 +19,9 @@ while (my $row = <IN>) {
 			$new = "chrM";
 		} elsif ($row =~ /chromosome ([^,]+),/) {
 			$new = "chr$1";
+			$new =~ s/Muller //; # Handle Dbif where names are "Muller A" etc and contain space
+			$new =~ s/ /_/;
+			$new =~ s/_Muller//; # Handle Dbif where names are "Muller A" etc and contain space
 			if ($new =~ s/ map unlocalized//) {
 				$new = "$new"."_$line[0]";
 			}

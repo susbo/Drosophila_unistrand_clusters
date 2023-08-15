@@ -1,9 +1,10 @@
 #!/bin/bash
 # Author: Susanne Bornelöv and Jasper van Lopik
-# Last update: 2022-11-19
+
+# Last update: 2023-08-15 - removed unused steps
 
 mkdir -p log
-mkdir -p log/{copy,merge,classifier,cdhit,bowtie,env,subfamily,repeatmasker,repeatmasker2,cluster_analysis,info,teaid,hits,consensus}
+mkdir -p log/{copy,merge,classifier,cdhit,bowtie,env,subfamily,repeatmasker,repeatmasker2,cluster_analysis,info,hits}
 WD=$(pwd)
 
 FILES=`ls /mnt/scratchb/ghlab/sus/REFERENCE/drosophila/species/*/*/genome.fa`
@@ -87,18 +88,6 @@ do
 	# Make summary files
    dep=""; if [ $JOBID != 0 ]; then dep="-d afterok:$JOBID:$JOBID2"; fi
 	JOBID=$(sbatch -n 1 -N 1 -p general --mem=8G -t 1:00:00 -J 10_info_$SPECIES --kill-on-invalid-dep=yes -o log/info/$SPECIES.log -e log/info/$SPECIES.log $dep scripts/10_info.sh $FILE | awk '{print $NF}')
-
-	# Running TE-Aid
-   dep=""; if [ $JOBID != 0 ]; then dep="-d afterok:$JOBID"; fi
-	JOBID2=$(sbatch -n 1 -N 1 -p general --mem=8G -t 3-00:00:00 -J 11_teaid_$SPECIES --kill-on-invalid-dep=yes -o log/teaid/$SPECIES.log -e log/teaid/$SPECIES.log $dep scripts/11_teaid.sh $FILE | awk '{print $NF}')
-
-	# Running automatic re-construction of consensus
-   dep=""; if [ $JOBID != 0 ]; then dep="-d afterok:$JOBID"; fi
-	JOBID=$(sbatch -n 1 -N 1 -p general --mem=8G -t 10-00:00:00 -J 12_consensus_$SPECIES --kill-on-invalid-dep=yes -o log/consensus/$SPECIES.log -e log/consensus/$SPECIES.log $dep scripts/12_consensus.sh $FILE | awk '{print $NF}')
-
-	# Running automatic re-construction of consensus
-   dep=""; if [ $JOBID != 0 ]; then dep="-d afterok:$JOBID"; fi
-	JOBID=$(sbatch -n 1 -N 1 -p general --mem=8G -t 3-00:00:00 -J 13_teaid_$SPECIES --kill-on-invalid-dep=yes -o log/consensus/$SPECIES.teaid.log -e log/consensus/$SPECIES.teaid.log $dep scripts/13_teaid.sh $FILE | awk '{print $NF}')
 
 	cd ${WD}
 done

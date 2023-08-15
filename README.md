@@ -11,7 +11,7 @@ Code used in (van Lopik et al., 2023) to analyse *flamenco* conservation and *fl
 * Synteny visualisation - Scripts to produce macro-/microsynteny plots using MCScan. These are currently available at [https://github.com/marianna-trapotsi/MCScan_plot](https://github.com/marianna-trapotsi/MCScan_plot).
 * [Synteny_biogenesis_genes](https://github.com/susbo/Uni-strand_clusters/tree/main/Synteny_biogenesis_genes) - Scripts to find syntenic locations of genes relevant for somatic piRNA biogenesis.
 
-Please reach out if you are missing information about any analysis step used in the paper and we will add it here if possible.
+Please do not hesitate to reach out if you are missing information about any particular analysis step used in the paper and we will add it here if possible.
 
 ### Version
 
@@ -28,5 +28,7 @@ This project is licensed under the  GNU GPLv3 License - see the [LICENSE](LICENS
 
 ### Citation
 
-If these scripts and pipelines are useful to your study, please cite our preprint:
-
+If you use these scripts and pipelines, please cite our preprint:<br />
+**Unistrand piRNA clusters are an evolutionary conserved mechanism to suppress endogenous retroviruses across the Drosophila genus** <br />
+Jasper van Lopik, Maria-Anna Trapotsi, Gregory J. Hannon, Susanne Bornelöv, Benjamin Czech Nicholson <br />
+*bioRxiv* 2023.02.27.530199; doi: [https://doi.org/10.1101/2023.02.27.530199](https://doi.org/10.1101/2023.02.27.530199)

@@ -13,7 +13,7 @@ name=`echo $file | cut -d'/' -f9-10 | sed -e 's/\//-/'`
 mkdir -p $path/annotation/TE_library/fasta
 mkdir -p $path/annotation/TE_library/fasta/tmp
 
-### Input directories of edta and repeatmodeler outputs
+### Input directories of EDTA and RepeatModeler2 outputs
 INPUT_1="$path/annotation/EDTA/genome.fa.mod.EDTA.TElib.fa"
 #INPUT_2="$path/annotation/EDTA/genome.fa.mod.EDTA.final/genome.fa.mod.RM.consensi.fa"
 INPUT_2="$path/annotation/EDTA/genome.fa.mod.EDTA.final/genome.fa.mod.RM.consensi.fa.rexdb.cls.lib" # Results of TEsorter step of EDTA

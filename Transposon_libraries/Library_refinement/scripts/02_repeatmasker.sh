@@ -22,7 +22,7 @@ conda activate repeatmasker
 mkdir -p $path/annotation/TE_library/repeatmasker/$fasta
 cd $fasta
 
-cmd="RepeatMasker -s -pa 6 -lib $path/annotation/TE_library/fasta/$fasta.fa -a -xsmall -html -gff -dir $path/annotation/TE_library/repeatmasker/$fasta $path/genome.fa"
+cmd="RepeatMasker -s -pa 6 -lib $path/annotation/TE_library/fasta/$fasta.fa -xsmall -html -gff -dir $path/annotation/TE_library/repeatmasker/$fasta $path/genome.fa"
 echo $cmd
 $cmd
 

@@ -1,10 +1,8 @@
 #!/bin/bash
+# Analyse repeat content in selected regions
 
 # Author: Susanne Bornelöv
 # Last change: 2022-11-22
-
-# Analyse repeat content in selected regions
-# Any regions can be defined for use with downstream scripts
 
 file=$1
 path=`dirname $file`
@@ -13,6 +11,7 @@ name=`echo $file | cut -d'/' -f9-10 | sed -e 's/\//-/'`
 # Go to folder
 mkdir -p $path/annotation/TE_library/cluster_analysis
 cd $path/annotation/TE_library/cluster_analysis
+rm *.fa* # Remove old results
 
 # Extract species and build name
 name=`echo $path | cut -d'/' -f9-10 | sed -e 's/\//-/'`
@@ -36,7 +35,7 @@ done < <(cat /Users/bornel01/refs/drosophila/annotation/TE_library/data/flam_coo
 fastas=`ls *.fa`
 for fasta in $fastas
 do
-	cmd="RepeatMasker -s -pa 6 -lib $path/annotation/TE_library/fasta/03_subset_reduced.fa -xsmall -html -gff -dir $path/annotation/TE_library/cluster_analysis $fasta"
+	cmd="RepeatMasker -s -pa 1 -lib $path/annotation/TE_library/fasta/03_subset_reduced.fa -xsmall -html -gff -dir $path/annotation/TE_library/cluster_analysis $fasta"
 	echo $cmd
 	$cmd
 	perl /Users/bornel01/refs/drosophila/annotation/TE_library/data/extractNestedRepeats.pl $fasta.out | sort -k1,1 -k2,2n > $fasta.nestedRepeats.bed
