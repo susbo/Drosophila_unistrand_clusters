@@ -15,7 +15,7 @@ Please do not hesitate to reach out if you are missing information about any par
 
 ### Version
 
-The current version is 0.99. For other the versions, see the [releases on this repository](https://github.com/susbo/Uni-stand_clusters/releases). 
+The current version is 0.999. For other the versions, see the [releases on this repository](https://github.com/susbo/Uni-stand_clusters/releases). 
 
 ### Authors
 
